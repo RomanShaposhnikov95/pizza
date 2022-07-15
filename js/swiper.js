@@ -1,9 +1,11 @@
-const swiper = new Swiper(".mySwiper", {
+(function() {
+
+    const swiper = new Swiper(".mySwiper", {
     slidesPerView: "auto",
     spaceBetween: 10,
     centeredSlides: true,
     loop: true,
-    loopFillGroupWithBlank: true,
+    // loopFillGroupWithBlank: true,
     speed: 500,
     pagination: {
         el: '.swiper-pagination',
@@ -22,3 +24,5 @@ const swiper = new Swiper(".mySwiper", {
 
     }
 });
+
+})();
