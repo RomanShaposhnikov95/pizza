@@ -21,9 +21,10 @@
 
                 total.innerHTML = ++result + `<span class="x">x</span>` ;
 
-                if(!el.classList.contains('swiper-slide')) {
+                if(!el.classList.contains('swiper-slide') && window.matchMedia("(max-width: 900px)").matches) {
                     el.classList.add('bord');
                 }
+
 
                 emptyCart.classList.add('d-none');
                 fullCart.classList.remove('d-none');

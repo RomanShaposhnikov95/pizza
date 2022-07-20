@@ -4,6 +4,9 @@
     const openBtn = document.querySelector('.menuOpen-btn');
     const openSvg = document.querySelector('.open-svg');
     const closeSvg = document.querySelector('.close-svg');
+    const closeBtn = document.querySelector('.close-btn');
+    const overlay = document.querySelector('.overlay');
+
 
     let topPos = Math.round(headerBottom.getBoundingClientRect().top + document.body.scrollTop);
     let open = false;
@@ -16,7 +19,31 @@
         mobileMenu.classList.toggle('d-none');
         open = !open;
         setOpen();
+        overlayShow()
     })
+
+    closeBtn.addEventListener('click', () => {
+        closeMenu()
+    })
+
+    overlay.addEventListener('click', () => {
+        closeMenu()
+    })
+
+    const closeMenu = () => {
+        mobileMenu.classList.add('d-none')
+        open = !open;
+        setOpen();
+        overlayShow()
+    }
+
+    const overlayShow = () => {
+        if (window.matchMedia("(min-width: 900px)").matches && open) {
+            overlay.classList.remove('d-none');
+        } else {
+            overlay.classList.add('d-none');
+        }
+    }
 
     const setOpen = () => {
         if (open) {
@@ -31,5 +58,4 @@
             closeSvg.classList.add('d-none');
         }
     }
-
 })();
